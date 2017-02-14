@@ -28,5 +28,4 @@ buid 文件夹，browser.min.js 文件
 
 ## 创建React 工程
 
-![image](/notes-img/7BA56D55-DE0A-461F-8E21-FD75247327D0.png)
 
