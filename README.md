@@ -23,9 +23,26 @@ React Native - 移动应用开发框架
 ## React 开发环境配置
 
 
-buid 文件夹，browser.min.js 文件
+react.js, react-dom.js，browser.min.js
 
 
 ## 创建React 工程
 
+## React 组件
 
+### 创建
+React.createClass();
+
+### 渲染
+ReactDOM.render([DOM],[element]);
+
+### 组件样式
+
+ - 内联
+ - 对象
+ - 选择器
+
+注意： ** React 中，如果选择用选择器样式设置组件，属性名不能使用class, 它是一个保留字，需要用className 替换；
+			 类似得，使用htmlFor 替换for 属性。 **
+
+## 复合组件
