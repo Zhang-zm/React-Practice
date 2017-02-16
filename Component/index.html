@@ -19,13 +19,13 @@
 </head>
 <body>
 	<!-- React 渲染的模板内容会插入到这个DOM 节点（作为一个容器）中 -->
-		设置组件的样式
+		<i>设置组件的样式:</i>
 	<div id="container"></div>
 
 	<br><br>
 
 	<!-- 复合组件 -->
-		复合组件
+		<i>复合组件:</i>
 	<div id="container-complex"></div>
 
 <!-- 在React 使用JSX, 跟JavaScript 不兼容。在使用JSX 的地方要设置type="text/babel" -->
@@ -119,15 +119,15 @@
 	 // 定义WebName 组件
 	 var WebName = React.createClass({
 		 render: function(){
-			 return <h1>zzm</h1>
+			 return <h1>{this.props.name}</h1>
 		 }
 	 });
 	 // 定义WebLink 组件
 	 var WebLink = React.createClass({
 		 render: function(){
-			 return <a href="https://github.com/Zhang-zm" target="_blank">
-			 					https://github.com/Zhang-zm
-			 				</a>
+			 return <a href="{this.props.link}" target="_blank">
+			 			{this.props.link}
+			 		</a>
 		 }
 	 });
 
@@ -136,8 +136,8 @@
 		 render: function(){
 			return(
 				<div>
-					<WebName />
-					<WebLink />
+					<WebName name="zzm"/>
+					<WebLink link="https://github.com/Zhang-zm" />
 				</div>
 			);
 		 }
@@ -148,6 +148,7 @@
 		 <WebShow />,
 		 document.getElementById("container-complex")
 	 );
+
 </script>
 
 </body>

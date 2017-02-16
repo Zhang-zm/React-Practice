@@ -46,3 +46,5 @@ ReactDOM.render([DOM],[element]);
 			 类似得，使用htmlFor 替换for 属性。 **
 
 ## 复合组件
+
+ReactDOM.render() 只要在父组件调用一次。
