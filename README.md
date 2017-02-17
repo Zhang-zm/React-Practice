@@ -1,5 +1,7 @@
 本笔记基于“百度传课” React Native 课程[《React Native零基础入门到项目实战》](http://www.chuanke.com/v4702151-196697-1122541.html)、[React 官方文档](https://facebook.github.io/react/)以及[React-Native 官方文档](http://reactnative.cn/)等整理，感谢各位老师及大神。
 
+另，此笔记较demo 会延迟一些更新，因为需要整理 :P
+
 ## 简介
 
 ![image](/notes-img/7BA56D55-DE0A-461F-8E21-FD75247327D0.png)
