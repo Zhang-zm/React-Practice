@@ -16,14 +16,192 @@
 	<div id="container">
 
 	</div>
+	<hr>
+	<div id="container2">
+
+	</div>
+	<hr>
+	<div id="container-children">
+
+	</div>
+	<hr>
+	<div id="container-propTypes">
+
+	</div>
+	<hr>
+	<div id="container-getDefaultProps">
+
+	</div>
 
 <!-- 在React 使用JSX, 跟JavaScript 不兼容。在使用JSX 的地方要设置type="text/babel" -->
 <!-- babel 是一个转换编译器，ES6 转成可以在浏览器中运行的代码 -->
 <script type="text/babel">
 
-// 在此处编写React 代码
+	// 在此处编写React 代码
+
+	/*
+		props, state
+
+		props 是组件自身的一个属性对象，一般用于潜逃的内外层组件，负责传递信息。（通常是由复层组件向子层组件传递）
+		注意：props 对象中的属性值与组件的属性一一对应，不要直接区修改props 中的属性的值。
+	*/
+
+	/*
+		需求：定义一个组件WebShow. 功能：输出网站的名字和网址，网址是一个可以点击的链接
+		分析：定义一个组件WebName负责输出网站名字，定义组件WebLink 显示网站的网址，并且可以点击。
+
+		思路：
+			1. 给WebShow 设置两个属性wname 和wlink
+			2. 第1步WebShow 的props 对象增加了两个属性值
+			3. WebName 从WebShow 的 props 对象红姑娘获取wname 的值，WebLink 同理。
+	*/
+
+	// 定义WebName 和WebLink （两个子组件）
+	var WebName = React.createClass({
+		render: function(){
+			return <h1>{this.props.webname}</h1>
+		}
+	});
+	var WebLink = React.createClass({
+		render: function(){
+			return <a href={this.props.weblink} target="_blank">{this.props.weblink}</a>
+		}
+	});
+
+	// 定义WebShow （父组件）
+	var WebShow = React.createClass({
+		render: function(){
+			return (
+				<div>
+					<WebName webname={this.props.wname}/>
+					<WebLink weblink={this.props.wlink}/>
+				</div>
+			);
+		}
+	});
+
+	// 渲染
+	ReactDOM.render(
+		<WebShow wname="zzm" wlink="https://github.com/Zhang-zm" />,
+		document.getElementById("container")
+	);
 
 
+
+
+
+
+	/*
+		...this.props
+		props 提供的语法糖，可以将父组件中的全部属性复制给子组件。
+
+		需求：定义一个组件Link, Link 组件中国年只包含一个<a></a>, 不给它设置任何属性，所有属性全部从父组件赋值得到
+	*/
+
+	// 定义组件Link
+	var Link = React.createClass({
+		render: function(){
+			return <a {...this.props}>{this.props.name}</a>
+		}
+	});
+
+	// 渲染
+	ReactDOM.render(
+		<Link href="https://github.com/Zhang-zm" name="zzm" target="_blank"/>,
+		document.getElementById("container2")
+	)
+
+
+
+	/*
+		this.props.children
+		children 是 "props 对象中的属性值与组件的属性一一对应"的例外。
+		它表示组件的所有子节点
+
+		HTML5 中有一种标签<ul> <ol> <li>
+
+		需求：定义一个列表组件，列表项中显示的列表内容，以及列表项的数量都由外部决定
+	*/
+
+	// 定义一个列表组件
+	var ListComponent = React.createClass({
+		render:function(){
+			return (
+				<ul>
+					{
+						// 列表项的数量以及内容不确定，在创建模板时才能确定
+						// 利用this.props.children 从父组件获取需要展示的列表项内容
+
+						// 获取到列表项内容后，需要便利children, 逐项进行处理
+						// 使用React.Children.map 方法（ 返回值：Array对象，这里数组中的元素时<li>）
+
+						React.Children.map(this.props.children, function(child){
+							// child 是遍历得到的父组件的子节点
+							return <li>{child}</li>
+						})
+
+					}
+				</ul>
+			);
+		}
+	});
+
+	// 渲染
+	ReactDOM.render(
+		(
+			<ListComponent>
+				<h1>zzm</h1>
+				<a href="https://github.com/Zhang-zm" target="_blank">https://github.com/Zhang-zm</a>
+			</ListComponent>
+		),
+		document.getElementById('container-children')
+	);
+
+
+
+	/*
+		属性的验证 propTypes
+
+		组件类的属性，用于验证实例的属性是否符合要求
+	*/
+
+	var ShowTitle = React.createClass({
+		render: function(){
+			return <h1>{this.props.title}</h1>
+		},
+		propTypes: function(){
+			// title 数据类型必须为字符串
+			title: React.propTypes.string.isRequired
+		}
+	});
+
+	ReactDOM.render(
+		<ShowTitle title="这是一个字符串，可以通过propTypes 的验证" />,
+		document.getElementById("container-propTypes")
+	);
+
+
+	/*
+		设置组件属性的默认值
+
+		通过实现组件的getDefaultProps 方法，对属性设置默认值
+	*/
+
+	var MyTitle = React.createClass({
+		render: function(){
+			return <h1>{this.props.title}</h1>
+		},
+		getDefaultProps: function(){
+			return {
+				title: "这是属性title 的默认值"
+			}
+		}
+	});
+
+	ReactDOM.render(
+		<MyTitle />,
+		document.getElementById("container-getDefaultProps")
+	);
 </script>
 
 </body>

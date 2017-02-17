@@ -15,7 +15,7 @@ React Native - 移动应用开发框架
 
 	1. React 用于Web 应用开发, React Native 采用React 方式进行移动应用开发。
 
-	2. React Native 采用React 语法，用于运行JavaScript 跨终端应用开发，既拥有原声Native 的交互体验，有能够保留React 自由的开发效率，使用灵活的HTML 和CSS 布局，使用React 语法构建组件，然后同时运行在iOS 和Android 平台上。 “Learn once, write anywhere.”
+	2. React Native 采用React 语法，用于运行JavaScript 跨终端应用开发，既拥有原生Native 的交互体验，有能够保留React 自由的开发效率，使用灵活的HTML 和CSS 布局，使用React 语法构建组件，然后同时运行在iOS 和Android 平台上。 “Learn once, write anywhere.”
 
 
 
