@@ -13,15 +13,41 @@
 </head>
 <body>
 	<!-- React 渲染的模板内容会插入到这个DOM 节点（作为一个容器）中 -->
-	<div id="container">
-		
-	</div>
+
+	事件处理
+	<div id="container"></div>
+	<hr>
+	state
+	<div id="container-state"></div>
 
 <!-- 在React 使用JSX, 跟JavaScript 不兼容。在使用JSX 的地方要设置type="text/babel" -->
 <!-- babel 是一个转换编译器，ES6 转成可以在浏览器中运行的代码 -->
 <script type="text/babel">
-	
-// 在此处编写React 代码
+
+	// 在此处编写React 代码
+
+	/*
+		事件处理
+
+		案例：定义一个组件，包含一个button, 给button 绑定一个onClick 事件
+	*/
+
+	var MyButton = React.createClass({
+		clickHandle: function(){
+			alert("点击按钮触发器的效果");
+		},
+		render: function(){
+			return (
+				// 绑定事件，采用驼峰命名法，如 onClick
+				<button onClick={this.clickHandle}>{this.props.buttonTitle}</button>
+			);
+		}
+	});
+
+	ReactDOM.render(
+		<MyButton buttonTitle="按钮文字"/>,
+		document.getElementById("container")
+	);
 </script>
 
 </body>
