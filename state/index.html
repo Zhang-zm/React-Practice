@@ -14,11 +14,11 @@
 <body>
 	<!-- React 渲染的模板内容会插入到这个DOM 节点（作为一个容器）中 -->
 
-	事件处理
 	<div id="container"></div>
 	<hr>
-	state
-	<div id="container-state"></div>
+	<div id="container-checkboxChangeState">
+
+	</div>
 
 <!-- 在React 使用JSX, 跟JavaScript 不兼容。在使用JSX 的地方要设置type="text/babel" -->
 <!-- babel 是一个转换编译器，ES6 转成可以在浏览器中运行的代码 -->
@@ -48,6 +48,58 @@
 		<MyButton buttonTitle="按钮文字"/>,
 		document.getElementById("container")
 	);
+
+
+	/*
+		state 状态
+		和props 一样，都是组件自身的属性
+
+		this.state
+	*/
+
+	/*
+		需求：创建组件 CheckButton, 它包含一个checkbox 类型的input, 根据复选框在“选中”、”未选中”两种状态下显示不同文字，即状态渲染。
+	*/
+
+	var CheckButton = React.createClass({
+		// 定义初始状态
+		getInitialState: function(){
+			return {
+					// 在此对象中设置的属性，将会存储在实例的this.state 中，方便访问
+					// 默认状态：未选中
+				isCheck: false
+			}
+		},
+		handleChange: function(){
+			// 修改状态值。通过 this.state 读取设置的状态址
+			this.setState({
+				isCheck: !this.state.isCheck
+			});
+		},
+		render: function(){
+			// 根据状态值，设置显示的文字
+			/*
+				备注： 在JSX 语法中，不能直接使用if...else , 要使用三目运算符
+			*/
+			var text = this.state.isCheck ? "已选中" : "未选中";
+
+			return (
+				<div>
+					<input type="checkbox" onChange={this.handleChange} />
+					{text}
+				</div>
+			);
+		}
+	});
+
+	ReactDOM.render(
+		<CheckButton />,
+		document.getElementById("container-checkboxChangeState")
+	);
+
+	/*
+		备注： 当state 发生变化时，会调用组件内部的render 方法
+	*/
 </script>
 
 </body>
