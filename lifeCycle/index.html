@@ -48,7 +48,7 @@
 				在render 之后执行，同一个组件重复渲染只执行一次
 
 		[2] Updating / 组件更新相关
-			- componentWillReciveProps(object nextProps)
+			- componentWillReceiveProps(object nextProps)
 				已家在组件收到新的props 之前的的调用。注意，组件初始化渲染时不会执行。
 			- shouldComponentUpdate(object nextProps, object nextState)
 				判断是否重新渲染。该接口实际是在组件接收到了新的props 或者新的state 时立即调用，然后通过
@@ -65,7 +65,7 @@
 
 			[1] getDefaultProps
 					设置props 默认值
-			[2] getIntialState
+			[2] getInitialState
 					设置state 属性初始值
 
 	*/
@@ -77,9 +77,97 @@
 	*/
 
 	var Demo = React.createClass({
+		/*
+			 一. 创建阶段
 
+			 		只调用getDefaultProps
+		*/
+		getDefaultProps: function(){
+			// 创建类时被调用，用于设置this.props 的默认值
+			console.log("getDefaultProps");
+			return {};
+		},
+			/*
+				二. 实例化阶段
+
+						getInitialState
+						componentWillMount
+						render
+						componentDidMount
+			*/
+			getInitialState: function(){
+				// 设置this.state 的默认值
+				console.log("getInitialState");
+				return null;
+			},
+			componentWillMount: function(){
+				// 在render 之前调用
+				console.log("componentWillMount");
+				return null;
+			},
+			render: function(){
+				// 渲染并返回一个虚拟DOM
+				console.log("render");
+				return <div>{this.props.text}</div>
+			},
+			componentDidMount: function(){
+				// render 之后调用
+				console.log("componentDidMount");
+				// 在该方法中，React 会使用render 方法返回的虚拟DOM 对想穿件真实的DOM结构
+				// 则，我们可以在这个方法中国年读取DOM 节点
+			},
+			/*
+				三. 更新阶段
+
+				componentWillReceiveProps
+				shouldComponentUpdate  // 备注：如果返回值时false 则后面三个不执行
+				componentWillUpdate
+				render
+				componentDidUpdate
+			*/
+			componentWillReceiveProps: function(){
+				console.log('componentWillReceiveProps');
+			},
+			shouldComponentUpdate: function(){
+				console.log("shouldComponentUpdate");
+				return true;
+				// 如果返回false, 则组件不会更新
+			},
+			componentWillUpdate: function(){
+				console.log("componentWillUpdate");
+			},
+			componentDidUpdate: function(){
+				console.log("componentDidUpdate");
+			},
+			/*
+				四. 销毁阶段
+
+				componentWillUnmount
+			*/
+			componentWillUnmount: function(){
+				console.log("componentWillUnmount");
+			}
 	});
 
+
+	/*
+		注意修改shouldComponentUpdate 的返回值，观察console
+	*/
+
+	// 第一次创建并加载组件
+	ReactDOM.render(
+		<Demo text="第一次的内容"/>,
+		document.getElementById("container")
+	);
+
+	// 重新渲染
+	ReactDOM.render(
+		<Demo text="第二次的内容"/>,
+		document.getElementById("container")
+	);
+
+	// 移除组件
+	ReactDOM.unmountComponentAtNode(document.getElementById("container"));
 </script>
 
 </body>
