@@ -86,13 +86,13 @@ ReactDOM.render() 只要在父组件调用一次。
 	- componentDidUpdate(object prevProps, object prevState)
 		组件已经更新
 
-	[3] Unmounting / 组件移除相关
-	- componentWillUnmount
-		组件将被移除之前的时间点触发，可以利用该方法来执行一些必要的清理组件的工作。
+[3] Unmounting / 组件移除相关
+- componentWillUnmount
+	组件将被移除之前的时间点触发，可以利用该方法来执行一些必要的清理组件的工作。
 
-	4. 与props 和state 有关的方法
+4. 与props 和state 有关的方法
 
-	[1] getDefaultProps
-			设置props 默认值
-	[2] getInitialState
-			设置state 属性初始值
+[1] getDefaultProps
+		设置props 默认值
+[2] getInitialState
+		设置state 属性初始值
