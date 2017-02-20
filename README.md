@@ -44,8 +44,8 @@ ReactDOM.render([DOM],[element]);
  - 对象
  - 选择器
 
-注意： ** React 中，如果选择用选择器样式设置组件，属性名不能使用class, 它是一个保留字，需要用className 替换；
-			 类似得，使用htmlFor 替换for 属性。 **
+注意： **React 中，如果选择用选择器样式设置组件，属性名不能使用class, 它是一个保留字，需要用className 替换；
+			 类似得，使用htmlFor 替换for 属性。**
 
 ## 复合组件
 
@@ -84,7 +84,7 @@ Unmounting - 组件移出，已移出真实DOM
 
 - componentWillReceiveProps(object nextProps)
 
-	已家在组件收到新的props 之前的的调用。注意，组件初始化渲染时不会执行。
+	组件收到新的props 之前的的调用。注意，组件初始化渲染时不会执行。
 
 - shouldComponentUpdate(object nextProps, object nextState)
 
@@ -113,3 +113,15 @@ Unmounting - 组件移出，已移出真实DOM
 [2] getInitialState
 
 设置state 属性初始值
+
+
+## React Native 开发环境配置
+
+- iOS 开发：
+
+Mac 操作系统, Xcode, Homebrew, Node.js, (NVM, watchman, flow), React Native
+
+具体参照官网：http://reactnative.cn/docs/0.41/getting-started.html#content
+
+
+## React Native 项目创建及结构分析
