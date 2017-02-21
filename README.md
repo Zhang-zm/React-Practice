@@ -125,3 +125,12 @@ Mac 操作系统, Xcode, Homebrew, Node.js, (NVM, watchman, flow), React Native
 
 
 ## React Native 项目创建及结构分析
+
+React-Native 项目创建及结构分析
+
+创建文件夹React-Native Demo
+
+	cd React-Native\ demo
+	react-native init HelloWorld
+
+	index.ios.js 和index.android.js 是分别是iOS 和Android 编写React-Native 混合开发代码的入口文件。
