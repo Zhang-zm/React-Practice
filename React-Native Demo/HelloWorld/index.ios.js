@@ -36,12 +36,31 @@ import {
   View
 } from 'react-native';
 
+
+/*
+  第二部分
+
+  创建ReactNative 组件
+
+  模板中使用的是ES6 的语法，
+  render(){} 是ES6 中国年函数的简写形式
+
+  ES5 语法如下：
+
+   var HelloWorld = React.createClass({
+     render: function(){
+      return {};
+    }
+  });
+
+*/
+
 export default class HelloWorld extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to ZZM!
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.ios.js
@@ -55,12 +74,21 @@ export default class HelloWorld extends Component {
   }
 }
 
+/*
+  第三部分
+
+  StyleSheet.create 创建样式实例
+
+  在应用中只会被创建一次，不用每次在渲染周期中重新创建
+*/
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#ddd',
   },
   welcome: {
     fontSize: 20,
@@ -69,9 +97,25 @@ const styles = StyleSheet.create({
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
+    color: 'red',
     marginBottom: 5,
   },
 });
+
+/*
+  第四部分
+
+  注册入口组件
+
+  AppRegistry: 负责注册运行ReactNative 应用程序的JavaScript 入口registerComponent 注册应用程序的入口组件。告知ReactNative 哪一个组件备注称为应用的根容器。
+
+  第二个参数使用了ES6 的语法 --- 尖头函数：
+  () => HelloWorld
+  返回的必须是定义的组件类的名字
+
+  等价于：
+
+  function(){return HelloWorld}
+*/
 
 AppRegistry.registerComponent('HelloWorld', () => HelloWorld);

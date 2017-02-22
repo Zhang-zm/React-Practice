@@ -133,4 +133,16 @@ React-Native 项目创建及结构分析
 	cd React-Native\ demo
 	react-native init HelloWorld
 
-	index.ios.js 和index.android.js 是分别是iOS 和Android 编写React-Native 混合开发代码的入口文件。
+index.ios.js 和index.android.js 是分别是iOS 和Android 编写React-Native 混合开发代码的入口文件。
+
+以React-Native Demo／HelloWorld 为例，有关“倒入React Native包”、“创建React Native 组件”、“tyleSheet.create 创建样式实例”以及“注册入口组件” 的详细介绍位于index.ios.js 文件注释。
+
+
+关于Simulator:
+- command+R 刷新 (Reload)
+- command+D 调出调试菜单
+
+
+关于Atom 中调试：
+
+command+shift+P ,"inspector"
