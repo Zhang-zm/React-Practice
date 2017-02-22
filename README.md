@@ -146,3 +146,8 @@ index.ios.js 和index.android.js 是分别是iOS 和Android 编写React-Native �
 关于Atom 中调试：
 
 command+shift+P ,"inspector"
+
+## StyleSheet 样式表
+
+- 驼峰命名法（相对于css 属性）
+- 内联样式、外部样式StyleSheet.create({});
