@@ -18,9 +18,11 @@ import {
 var StyleDemoComponent = React.createClass({
   render: function(){
     return (
+      // 若有多个style, 则写成数组形式。靠后的会覆盖前面的样式
+      // 不推荐内联样式
       <View style={demoStyleSheet.container}>
-        <View style={demoStyleSheet.top}></View>
-        <View style={demoStyleSheet.bottom}></View>
+        <View style={[demoStyleSheet.top,demoStyleSheet.border]}></View>
+        <View style={[demoStyleSheet.border,demoStyleSheet.bottom,{borderColor:"black"}]}></View>
       </View>
     );
   }
@@ -55,13 +57,17 @@ var demoStyleSheet = StyleSheet.create({
   },
   // 内层（下面一个View 组件）
   bottom: {
-    backgroundColor: "yellow",
+    backgroundColor: "blue",
     width: 280,
     height: 110,
     marginTop: 10,
     marginLeft:10,
+    borderWidth: 5,
+    borderColor: "white"
+  },
+  border: {
     borderWidth: 3,
-    borderColor: "gray"
+    borderColor: "white"
   }
 });
 
