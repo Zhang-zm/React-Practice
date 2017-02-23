@@ -151,3 +151,21 @@ command+shift+P ,"inspector"
 
 - 驼峰命名法（相对于css 属性）
 - 内联样式、外部样式StyleSheet.create({});
+
+
+## Flexbox 布局
+
+提供了一种比较好的弹性布局模式，使子元素更好的分配空间。
+
+（可以参考 [W3C 关于CSS3 的弹性和模型介绍](www.runoob.com／css3/css3-flexbox.html)）
+
+![image](/notes-img/flexbox.png)
+
+注：
+1. 主轴的设定不固定，和item 的排列方式有关。按列排／按行排；
+2. 起始点／结束点
+
+### React Native 中的Flexbox 布局与CSS3 存在一些差异：
+
+- 命名方式：驼峰
+- 默认值
