@@ -50,7 +50,20 @@ var demoStyles = StyleSheet.create.({
   },
   // 多个子组件都需要设置
   flex: {
-
+    flex:1
+  },
+  center:{
+    justifyContent:"cneter",
+    alignItems:"center"
+  },
+  item:{
+    flexDirection:"row",
+    backgroundColor:"#ff607c",
+    marginTop:5,
+    margomLeft:5,
+    marginRight:5,
+    height:80,
+    borderRadius:5
   }
 });
 
