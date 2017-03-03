@@ -34,13 +34,16 @@ import {
   再在index.ios.js 中引用
 */
 
-var textDemo = React.create({
+// 引入Header 组件
+var Header = require("./header");
+
+
+var textDemo = React.createClass({
   render: function(){
     return (
       <View style={styles.flex}>
-        // Header component
+        <Header></Header>
 
-        // News component
 
       </View>
     );
@@ -48,7 +51,9 @@ var textDemo = React.create({
 });
 
 var styles = StyleSheet.create({
-  flex: 1
+  flex: {
+    flex:1
+  }
 });
 
 
