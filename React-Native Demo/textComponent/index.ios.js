@@ -42,9 +42,8 @@ var textDemo = React.createClass({
   render: function(){
     return (
       <View style={styles.flex}>
+
         <Header></Header>
-
-
       </View>
     );
   }
