@@ -13,9 +13,9 @@ var Header = React.createClass({
       <View style={styles.container}>
         {/* 注意：JSX 语法，注释要包在{}里 */}
         <Text style={styles.common}>
-          <Text style={styles.words_left}>张立欣</Text>
-          <Text style={styles.words_middle}>是</Text>
-          <Text>大傻逼</Text>
+          <Text style={styles.words_left}>网易</Text>
+          <Text style={styles.words_middle}>新闻</Text>
+          <Text>有态度</Text>
         </Text>
       </View>
     );
