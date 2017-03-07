@@ -36,14 +36,21 @@ import {
 
 // 引入Header 组件
 var Header = require("./header");
+var News = require("./news");
 
 
 var textDemo = React.createClass({
   render: function(){
+    var newsItemData = [
+      "新闻",
+      "这条新闻是大于三行的，多余两行会隐藏。因为设置了numberOfLines 属性 = 2. 新闻有这么长新闻有这么长新闻有这么长新闻有这么长新闻有这么长新闻有这么长新闻有这么长新闻有这么长新闻有这么长新闻有这么长新闻有这么长",
+      "内容内容内容内容内容内容内容内容内容内容内容内容大概是这样。",
+      "什么也没有"
+    ];
     return (
       <View style={styles.flex}>
-
         <Header></Header>
+        <News news={newsItemData}></News>
       </View>
     );
   }
