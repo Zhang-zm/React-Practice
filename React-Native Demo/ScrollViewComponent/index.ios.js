@@ -18,16 +18,17 @@ import {
   实现ScrollView 的基本功能
 */
 
-var ScrollViewComponent = require("./myScrollView");
+// var ScrollViewComponent = require("./myScrollView");
 
 /*
 
   练习二
 
   电影列表
-
 */
 
+var MovieList = require("./movieList");
 
 
-AppRegistry.registerComponent('ScrollViewComponent', () => ScrollViewComponent);
+
+AppRegistry.registerComponent('ScrollViewComponent', () => MovieList);
