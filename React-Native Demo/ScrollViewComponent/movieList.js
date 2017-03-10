@@ -32,7 +32,7 @@ var movies = movieData.movies;
 var MovieList = React.createClass({
   _onRefresh:function(){
     console.log("Loading");
-    alert("刷新操作");
+    alert("触发 onRefresh");
   },
   render: function(){
     var movieRows = [];
