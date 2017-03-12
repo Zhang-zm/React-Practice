@@ -21,7 +21,7 @@ var ListViewComponent = require("./MyListView.js");
 /*
    练习1 ListView 基本练习
 */
+var MovieList = require("./MovieList.js")
 
 
-
-AppRegistry.registerComponent('ListViewComponent', () => ListViewComponent);
+AppRegistry.registerComponent('ListViewComponent', () => MovieList);
