@@ -30,7 +30,7 @@ var MovieList = React.createClass({
     });
 
     return {
-      dataSource: ds.cloneWithRows(movies);
+      dataSource: ds.cloneWithRows(movies)
     }
   },
   _renderRow: function(movie){
@@ -44,7 +44,7 @@ var MovieList = React.createClass({
           style={styles.rightContainer}>
           <Text style={styles.title}>{movie.title}</Text>
           <Text stlye={styles.year}>{movie.year}</Text>
-        </Viwe>
+        </View>
       </View>
     );
   },
@@ -76,7 +76,6 @@ var MovieList = React.createClass({
         renderHeader={this._renderHeader}
         renderSeparator={this._renderSeparator}
         initialListSize={10}></ListView>
-        {/* initialListSize 用于设置ListView 第一次渲染的行数 */}
     );
   }
 });
@@ -113,7 +112,7 @@ var styles = StyleSheet.create({
   year:{
     marginBottom:3,
     textAlign:"center"
-  }，
+  },
 
   // header 样式
   header:{
@@ -123,10 +122,10 @@ var styles = StyleSheet.create({
   headerText:{
     flex:1,
     fontSize:20,
-    fontWidth:"bold",
+    fontWeight:"bold",
     textAlign:"center",
     lineHeight:44
-  }
+  },
   // 分割线
   separator:{
     height:1,
