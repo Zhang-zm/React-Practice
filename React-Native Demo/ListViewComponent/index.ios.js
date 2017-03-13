@@ -17,11 +17,11 @@ import {
 */
 
 
-var ListViewComponent = require("./MyListView.js");
+// var ListViewComponent = require("./MyListView.js");
 /*
    练习1 ListView 基本练习
 */
-var MovieList = require("./MovieList.js")
+var ListViewComponent = require("./movieList.js")
 
 
-AppRegistry.registerComponent('ListViewComponent', () => MovieList);
+AppRegistry.registerComponent('ListViewComponent', () => ListViewComponent);
