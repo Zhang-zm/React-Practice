@@ -26,7 +26,7 @@ var MovieList = React.createClass({
   getInitialState: function(){
     // 创建dataSource 对象
     var ds = new ListView.DataSource({
-      rowHasChanged: (oldRow, newRow) => oldRow !== newRow
+      rowHasChanged: (oldRow, newRow) => oldRow!==newRow
     });
 
     return {
@@ -34,11 +34,10 @@ var MovieList = React.createClass({
     }
   },
   _renderRow: function(movie){
-    // 渲染行组件
     return (
       <View style={styles.row}>
         <Image
-        style={styles.thumbnaill}
+          style={styles.thumbnaill}
           source={{uri:movie.posters.thumbnaill}}/>
         <View
           style={styles.rightContainer}>
@@ -49,17 +48,14 @@ var MovieList = React.createClass({
     );
   },
   _renderHeader: function(){
-    // 渲染头部
-    renter (
+    return (
       <View style={styles.header}>
         <Text style={styles.header_text}>Movies List</Text>
         <View style={styles.separator}></View>
       </View>
     );
   },
-  _renderSeparator: function(sectionID:number, rowID:number){
-    // 渲染分割线
-    // 可以接收3个参数(sectionID, rowID, adjacentRowHighlignt)  相参官方文档
+  _renderSeparator: function(sectionID, rowId){
     return (
       <View
         key={sectionID+rowID}
@@ -75,7 +71,8 @@ var MovieList = React.createClass({
         renderRow={this._renderRow}
         renderHeader={this._renderHeader}
         renderSeparator={this._renderSeparator}
-        initialListSize={10}></ListView>
+        initialListSize={10}>
+      </ListView>
     );
   }
 });
