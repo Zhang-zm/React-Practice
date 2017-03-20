@@ -19,7 +19,7 @@ Image
 var movieData = require("./data.json");
 
 // movies 数据
-var movies = movieData.novies; // Array
+var movies = movieData.movies; // Array
 
 
 var MovieList = React.createClass({
