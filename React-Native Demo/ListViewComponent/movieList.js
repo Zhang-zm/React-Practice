@@ -19,47 +19,43 @@ Image
 var movieData = require("./data.json");
 
 // movies 数据
-var movies = movieData.novies; // Array
+var movies = movieData.movies; // Array
 
 
 var MovieList = React.createClass({
   getInitialState: function(){
     // 创建dataSource 对象
     var ds = new ListView.DataSource({
-      rowHasChanged: (oldRow, newRow) => oldRow !== newRow
+      rowHasChanged: (oldRow, newRow) => oldRow!==newRow
     });
 
     return {
-      dataSource: ds.cloneWithRows(movies);
+      dataSource: ds.cloneWithRows(movies)
     }
   },
   _renderRow: function(movie){
-    // 渲染行组件
     return (
       <View style={styles.row}>
         <Image
-        style={styles.thumbnaill}
+          style={styles.thumbnaill}
           source={{uri:movie.posters.thumbnaill}}/>
         <View
           style={styles.rightContainer}>
           <Text style={styles.title}>{movie.title}</Text>
           <Text stlye={styles.year}>{movie.year}</Text>
-        </Viwe>
+        </View>
       </View>
     );
   },
   _renderHeader: function(){
-    // 渲染头部
-    renter (
+    return (
       <View style={styles.header}>
         <Text style={styles.header_text}>Movies List</Text>
         <View style={styles.separator}></View>
       </View>
     );
   },
-  _renderSeparator: function(sectionID:number, rowID:number){
-    // 渲染分割线
-    // 可以接收3个参数(sectionID, rowID, adjacentRowHighlignt)  相参官方文档
+  _renderSeparator: function(sectionID, rowId){
     return (
       <View
         key={sectionID+rowID}
@@ -75,8 +71,8 @@ var MovieList = React.createClass({
         renderRow={this._renderRow}
         renderHeader={this._renderHeader}
         renderSeparator={this._renderSeparator}
-        initialListSize={10}></ListView>
-        {/* initialListSize 用于设置ListView 第一次渲染的行数 */}
+        initialListSize={10}>
+      </ListView>
     );
   }
 });
@@ -113,7 +109,7 @@ var styles = StyleSheet.create({
   year:{
     marginBottom:3,
     textAlign:"center"
-  }，
+  },
 
   // header 样式
   header:{
@@ -123,10 +119,10 @@ var styles = StyleSheet.create({
   headerText:{
     flex:1,
     fontSize:20,
-    fontWidth:"bold",
+    fontWeight:"bold",
     textAlign:"center",
     lineHeight:44
-  }
+  },
   // 分割线
   separator:{
     height:1,
